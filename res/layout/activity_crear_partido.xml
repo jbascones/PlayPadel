@@ -60,23 +60,35 @@
                 android:id="@+id/horaETid"
                 android:layout_width="@dimen/_50sdp"
                 android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textView6"
+                android:layout_alignBottom="@+id/textView6"
+                android:layout_alignEnd="@+id/textView6"
+                android:layout_marginEnd="@dimen/_11sdp"
                 android:layout_marginRight="@dimen/_11sdp"
                 android:ems="10"
                 android:hint="24hh"
-                android:inputType="number"
-                android:layout_alignTop="@+id/textView6"
-                android:layout_alignEnd="@+id/textView6" />
+                android:inputType="number" />
 
             <EditText
                 android:id="@+id/minEDid"
                 android:layout_width="@dimen/_50sdp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="@dimen/_25sdp"
+                android:layout_toEndOf="@+id/horaETid"
                 android:ems="10"
                 android:hint="mm"
-                android:inputType="number"
-                android:layout_alignParentTop="true"
-                android:layout_toEndOf="@+id/horaETid" />
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/nivelmin"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:ems="10"
+                android:hint="Nivel mínimo (1-10)"
+                android:inputType="number" />
 
             <Button
                 android:id="@+id/button2"
@@ -84,7 +96,7 @@
                 android:layout_height="@dimen/_59sdp"
                 android:layout_below="@+id/textView6"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="62dp"
+                android:layout_marginTop="@dimen/_62sdp"
                 android:background="#009688"
                 android:onClick="botonCrearPartido"
                 android:text="Crear Partido"
@@ -97,7 +109,7 @@
                 android:id="@+id/textView6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignTop="@+id/minEDid"
+                android:layout_alignBottom="@+id/minEDid"
                 android:layout_centerHorizontal="true"
                 android:layout_marginLeft="@dimen/_96sdp"
                 android:text=":"

@@ -29,7 +29,7 @@
         <TextView
             android:id="@+id/elPartidoId"
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/_63sdp"
+            android:layout_height="@dimen/_40sdp"
             android:layout_gravity="center_horizontal"
             android:text="Tu partido"
             android:textSize="@dimen/_32sdp"
@@ -69,9 +69,7 @@
                 android:id="@+id/button4"
                 android:layout_width="@dimen/_279sdp"
                 android:layout_height="@dimen/_70sdp"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="@dimen/_40sdp"
+                android:layout_marginBottom="@dimen/_14sdp"
                 android:backgroundTint="#009688"
                 android:elevation="0dp"
                 android:onClick="IrBuscarPartido"
@@ -80,7 +78,9 @@
                 android:textColorLink="#009688"
                 android:textSize="@dimen/_20sdp"
                 tools:layout_editor_absoluteX="@dimen/_53sdp"
-                tools:layout_editor_absoluteY="@dimen/_413sdp" />
+                tools:layout_editor_absoluteY="@dimen/_450sdp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true" />
 
             <TextView
                 android:id="@+id/jugador1Id"

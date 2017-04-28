@@ -24,7 +24,7 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="142dp">
+            android:layout_height="@dimen/_142sdp">
 
             <Button
                 android:id="@+id/button7"
@@ -36,13 +36,13 @@
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="173dp"
-                android:layout_height="127dp"
+                android:layout_width="@dimen/_173sdp"
+                android:layout_height="@dimen/_127sdp"
 
                 android:layout_gravity="center"
                 android:visibility="visible"
-                tools:layout_editor_absoluteX="106dp"
-                tools:layout_editor_absoluteY="16dp" />
+                tools:layout_editor_absoluteX="@dimen/_106sdp"
+                tools:layout_editor_absoluteY="@dimen/_16sdp" />
         </LinearLayout>
 
         <RelativeLayout
@@ -51,11 +51,11 @@
 
             <SeekBar
                 android:id="@+id/seekBar"
-                android:layout_width="277dp"
-                android:layout_height="25dp"
+                android:layout_width="@dimen/_277sdp"
+                android:layout_height="@dimen/_25sdp"
                 android:progress="60"
-                tools:layout_editor_absoluteX="54dp"
-                tools:layout_editor_absoluteY="275dp"
+                tools:layout_editor_absoluteX="@dimen/_54sdp"
+                tools:layout_editor_absoluteY="@dimen/_275sdp"
                 android:layout_below="@+id/linearLayout2"
                 android:layout_centerHorizontal="true" />
 
@@ -65,20 +65,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:rating="4.25"
-                tools:layout_editor_absoluteX="54dp"
-                tools:layout_editor_absoluteY="354dp"
-                android:layout_below="@+id/seekBar"
-                android:layout_alignStart="@+id/seekBar"
-                android:layout_marginTop="66dp"
-                android:layout_alignLeft="@+id/seekBar" />
+                tools:layout_editor_absoluteX="@dimen/_54sdp"
+                tools:layout_editor_absoluteY="@dimen/_354sdp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="@dimen/_17sdp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="86sp"
+                android:layout_height="@dimen/_86sdp"
                 android:layout_above="@+id/test1"
                 android:layout_alignParentStart="true"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="51dp"
+                android:layout_marginBottom="@dimen/_51sdp"
                 android:orientation="horizontal"
                 android:id="@+id/linearLayout2"
                 android:layout_alignParentLeft="true">
@@ -86,12 +85,12 @@
                 <TextView
                     android:id="@+id/miNombreId"
                     android:layout_width="match_parent"
-                    android:layout_height="63sp"
+                    android:layout_height="@dimen/_63sdp"
                     android:gravity="center_vertical|center_horizontal"
                     android:scrollbars="vertical"
                     android:text="Nombre de usuario"
                     android:textIsSelectable="false"
-                    android:textSize="16sp"
+                    android:textSize="@dimen/_16sdp"
                     android:textStyle="bold" />
 
             </LinearLayout>
