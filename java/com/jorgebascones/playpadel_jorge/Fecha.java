@@ -6,18 +6,47 @@ package com.jorgebascones.playpadel_jorge;
 
 public class Fecha {
 
+    /**
+     * Dia en la fecha
+     */
     public int day;
+
+    /**
+     * Mes de la fecha
+     */
     public int month;
+
+    /**
+     * Anno de la fecha
+     */
     public int year;
 
+    /**
+     * La hora de la fecha
+     */
     public int hour;
+
+    /**
+     * Los minutos de la fecha
+     */
     public int minute;
 
+    /**
+     * Constructor vacio de Fecha
+     */
     public Fecha(){
 
     }
 
-
+    /**
+     * Constructor de Fecha con parametros
+     *
+     * @param day El dia de la fecha
+     * @param month La hora de la fecha
+     * @param year El anno de la fecha
+     * @param hour La hora de la fecha
+     * @param minute Los minutos de la fecha
+     */
     public Fecha(int day,int month,int year,int hour,int minute){
 
         this.day=day;
