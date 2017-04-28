@@ -126,15 +126,6 @@ public class PrimerActivity extends AppCompatActivity implements GoogleApiClient
         DatabaseReference myRef = database.getReference();
 
 
-        Fecha f = new Fecha(-8,-1,-1,-1,-1);
-        RegistroPartido rp = new RegistroPartido(0);
-        rp.add(1);
-        rp.add(9);
-        rp.add(5);
-        Usuario uPrueba = new Usuario("The Cokster",10,"cokster@gmail.com");
-        Partido pPrueba = new Partido(uPrueba,f);
-
-
         //subirAFirebase(pPrueba,"Partidos/"+"Partidos de "+yo.getNombre()+"/");
 
         Partido partidoBajado;
@@ -218,7 +209,6 @@ public class PrimerActivity extends AppCompatActivity implements GoogleApiClient
 
 
         //bucleBajarPartidos();
-        corregirMisPartidos();
         corregirMisPartidos();
 
         bucleBajarPartidos();
@@ -378,6 +368,8 @@ public class PrimerActivity extends AppCompatActivity implements GoogleApiClient
                     yo.setMisPartidos(yo.getMisPartidos()+partidoNuevo+"&");
 
                     subirAFirebase(yo,"Usuarios/"+yo.getUsuarioId());
+
+                    addMisPartidos(partido_nuevo);
 
                     setContentView(R.layout.activity_mispartidos2);
 
@@ -819,6 +811,14 @@ public class PrimerActivity extends AppCompatActivity implements GoogleApiClient
             }
 
         }
+
+    }
+
+    public void addRutaTodosPartidos(){
+
+
+
+
 
     }
 
