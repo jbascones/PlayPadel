@@ -748,7 +748,11 @@ public class PrimerActivity extends AppCompatActivity implements GoogleApiClient
 
                 if(misPartidos.contains(miPartido)==false){
 
-                misPartidos.add(miPartido);}
+               // misPartidos.add(miPartido);
+                    //TODO añadir partido al bajartelo
+                addMisPartidos(miPartido);
+
+                }
 
 
             }
@@ -791,6 +795,32 @@ public class PrimerActivity extends AppCompatActivity implements GoogleApiClient
 
     }
 
+    public void addMisPartidos(Partido p_nuevo){
+
+        if(misPartidos.size()==0){
+            misPartidos.add(p_nuevo);
+
+        }else{
+            boolean added = false;
+
+            for(int i=0;i<misPartidos.size();i++){
+
+                String id1 = misPartidos.get(i).getPartidoId();
+                String id2 = p_nuevo.getPartidoId();
+                if(id1.equals(id2)){
+                    misPartidos.remove(i);
+                    misPartidos.add(i,p_nuevo);
+                    added = true;
+                }
+
+            }
+            if(added==false){
+                misPartidos.add(p_nuevo);
+            }
+
+        }
+
+    }
 
 
 }
