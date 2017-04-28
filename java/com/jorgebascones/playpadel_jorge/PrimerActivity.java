@@ -794,7 +794,7 @@ public class PrimerActivity extends AppCompatActivity implements GoogleApiClient
         }
 
     }
-
+    //Metodo que gestiona el añadido de partidos
     public void addMisPartidos(Partido p_nuevo){
 
         if(misPartidos.size()==0){
