@@ -29,12 +29,12 @@
         <TextView
             android:id="@+id/elPartidoId"
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/_40sdp"
+            android:layout_height="63dp"
             android:layout_gravity="center_horizontal"
             android:text="Tu partido"
-            android:textSize="@dimen/_32sdp"
-            tools:layout_editor_absoluteX="@dimen/_16sdp"
-            tools:layout_editor_absoluteY="@dimen/_16sdp" />
+            android:textSize="32sp"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="16dp" />
 
 
         <RelativeLayout
@@ -49,9 +49,9 @@
                 android:layout_below="@+id/jugador3Id"
                 android:layout_marginTop="38dp"
                 android:text="Jugador 4"
-                android:textSize="@dimen/_25sdp"
-                tools:layout_editor_absoluteX="@dimen/_40sdp"
-                tools:layout_editor_absoluteY="@dimen/_200sdp" />
+                android:textSize="25sp"
+                tools:layout_editor_absoluteX="40dp"
+                tools:layout_editor_absoluteY="200dp" />
 
             <TextView
                 android:id="@+id/jugador3Id"
@@ -59,28 +59,28 @@
                 android:layout_height="wrap_content"
                 android:layout_alignStart="@+id/jugador4Id"
                 android:layout_below="@+id/jugador2Id"
-                android:layout_marginTop="@dimen/_38sdp"
+                android:layout_marginTop="38dp"
                 android:text="Jugador 3"
-                android:textSize="@dimen/_25sdp"
-                tools:layout_editor_absoluteX="@dimen/_40sdp"
-                tools:layout_editor_absoluteY="@dimen/_200sdp" />
+                android:textSize="25sp"
+                tools:layout_editor_absoluteX="40dp"
+                tools:layout_editor_absoluteY="200dp" />
 
             <Button
                 android:id="@+id/button4"
-                android:layout_width="@dimen/_279sdp"
-                android:layout_height="@dimen/_70sdp"
-                android:layout_marginBottom="@dimen/_14sdp"
+                android:layout_width="279dp"
+                android:layout_height="70dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="40dp"
                 android:backgroundTint="#009688"
                 android:elevation="0dp"
                 android:onClick="IrBuscarPartido"
                 android:text="Finalizar Partido"
                 android:textColor="@android:color/background_light"
                 android:textColorLink="#009688"
-                android:textSize="@dimen/_20sdp"
-                tools:layout_editor_absoluteX="@dimen/_53sdp"
-                tools:layout_editor_absoluteY="@dimen/_450sdp"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true" />
+                android:textSize="20sp"
+                tools:layout_editor_absoluteX="53dp"
+                tools:layout_editor_absoluteY="413dp" />
 
             <TextView
                 android:id="@+id/jugador1Id"
@@ -88,11 +88,11 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_alignStart="@+id/jugador4Id"
-                android:layout_marginTop="@dimen/_16sdp"
+                android:layout_marginTop="16dp"
                 android:text="Jugador 1"
-                android:textSize="@dimen/_25sdp"
-                tools:layout_editor_absoluteX="@dimen/_40sdp"
-                tools:layout_editor_absoluteY="@dimen/_290sdp" />
+                android:textSize="25sp"
+                tools:layout_editor_absoluteX="40dp"
+                tools:layout_editor_absoluteY="290dp" />
 
             <TextView
                 android:id="@+id/jugador2Id"
@@ -100,11 +100,11 @@
                 android:layout_height="wrap_content"
                 android:layout_alignStart="@+id/jugador3Id"
                 android:layout_below="@+id/jugador1Id"
-                android:layout_marginTop="@dimen/_38sdp"
+                android:layout_marginTop="38dp"
                 android:text="Jugador 2"
-                android:textSize="@dimen/_25sdp"
-                tools:layout_editor_absoluteX="@dimen/_40sdp"
-                tools:layout_editor_absoluteY="@dimen/_110sdp" />
+                android:textSize="25sp"
+                tools:layout_editor_absoluteX="40dp"
+                tools:layout_editor_absoluteY="110dp" />
 
             <Button
                 android:id="@+id/button10"
