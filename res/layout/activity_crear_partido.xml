@@ -1,0 +1,126 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+
+    android:layout_height="wrap_content" tools:context=".PrimerActivity"
+    >
+
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentStart="false"
+        android:weightSum="1"
+        android:background="#81c1ccd9"
+        android:id="@+id/linearLayout"
+        android:baselineAligned="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:clickable="false"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentRight="true">
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/bottons"
+            android:onClick="IrHome"
+            android:text="Atrás" />
+
+
+        <DatePicker
+            android:id="@+id/datePickeId"
+            android:layout_marginLeft="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="279dp"
+            android:layout_gravity="center_horizontal"
+            tools:layout_editor_absoluteX="26dp"
+            tools:layout_editor_absoluteY="49dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RadioButton
+                android:id="@+id/radiobuttona"
+                android:layout_width="114dp"
+                android:layout_height="35dp"
+                android:layout_alignBottom="@+id/radioButton2"
+                android:layout_alignLeft="@+id/button2"
+                android:layout_alignStart="@+id/button2"
+                android:text="Por código postal"
+                tools:layout_editor_absoluteX="184dp"
+                tools:layout_editor_absoluteY="378dp" />
+
+            <RadioButton
+                android:id="@+id/radioButton2"
+                android:layout_width="101dp"
+                android:layout_height="33dp"
+                android:text="Mi zona"
+                tools:layout_editor_absoluteX="41dp"
+                tools:layout_editor_absoluteY="378dp"
+                android:layout_marginEnd="11dp"
+                android:layout_above="@+id/button2"
+                android:layout_alignEnd="@+id/button2"
+                android:layout_marginRight="11dp"
+                android:layout_alignRight="@+id/button2" />
+
+            <EditText
+                android:id="@+id/horaETid"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="11dp"
+                android:ems="10"
+                android:hint="24hh"
+                android:inputType="number"
+                android:layout_alignBaseline="@+id/minEDid"
+                android:layout_alignBottom="@+id/minEDid"
+                android:layout_alignEnd="@+id/radiobuttona" />
+
+            <EditText
+                android:id="@+id/minEDid"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="mm"
+                android:inputType="number"
+                android:layout_alignParentTop="true"
+                android:layout_alignStart="@+id/radioButton2"
+                android:layout_marginTop="21dp" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="259dp"
+                android:layout_height="59dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:background="#009688"
+                android:onClick="botonCrearPartido"
+                android:text="Crear Partido"
+                android:textColor="@color/common_google_signin_btn_text_dark_default"
+                android:textSize="20sp"
+                tools:layout_editor_absoluteX="41dp"
+                tools:layout_editor_absoluteY="426dp" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="96dp"
+                android:text=":"
+                android:textSize="40sp"
+                android:layout_alignTop="@+id/minEDid"
+                android:layout_centerHorizontal="true" />
+
+            <!-- time picker mode of a time picker -->
+
+        </RelativeLayout>
+    </LinearLayout>
+
+
+</RelativeLayout>
+

@@ -1,0 +1,78 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+
+    android:layout_height="wrap_content" tools:context=".PrimerActivity"
+    >
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:weightSum="1"
+        android:background="#81c1ccd9"
+        android:id="@+id/linearLayout"
+        android:baselineAligned="true"
+        android:clickable="false"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true">
+
+        <Button
+            android:id="@+id/button8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/bottons"
+            android:onClick="IrHome"
+            android:text="Atrás" />
+
+        <!-- time picker mode of a time picker -->
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="259dp"
+                android:layout_height="59dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="25dp"
+                android:background="#009688"
+                android:onClick="IrCrear"
+                android:text="INDICA TÚ UNA"
+                android:textColor="@color/common_google_signin_btn_text_dark_default"
+                android:textColorLink="@color/common_google_signin_btn_text_dark_default"
+                android:textSize="20sp"
+                tools:layout_editor_absoluteX="41dp"
+                tools:layout_editor_absoluteY="426dp" />
+
+            <ListView
+                android:id="@+id/listIdPartido"
+                android:layout_width="match_parent"
+                android:layout_height="330dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="13dp" />
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="¿No te convencen?"
+                android:textSize="24sp"
+                tools:layout_editor_absoluteX="35dp"
+                tools:layout_editor_absoluteY="410dp"
+                android:layout_above="@+id/button2"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="17dp" />
+
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

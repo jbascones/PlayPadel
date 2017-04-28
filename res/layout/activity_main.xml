@@ -1,0 +1,121 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+
+    android:layout_height="wrap_content" tools:context=".PrimerActivity"
+    >
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:weightSum="1"
+        android:background="#81c1ccd9"
+        android:id="@+id/linearLayout"
+        android:baselineAligned="true"
+        android:clickable="false"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="142dp">
+
+            <ImageView
+                android:id="@+id/miFotoId"
+                android:layout_width="173dp"
+                android:layout_height="127dp"
+
+                android:layout_gravity="center"
+                android:adjustViewBounds="false"
+                android:clickable="true"
+                android:onClick="IrPerfil"
+                android:visibility="visible"
+                ads:srcCompat="@mipmap/ic_launcher"
+                tools:layout_editor_absoluteX="106dp"
+                tools:layout_editor_absoluteY="16dp" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/test1"
+                android:layout_width="259dp"
+                android:layout_height="59dp"
+                android:layout_above="@+id/test2"
+                android:layout_alignStart="@+id/test2"
+                android:layout_marginBottom="40dp"
+                android:backgroundTint="@color/accent"
+                android:onClick="IrBuscarPartido"
+                android:text="BUSCAR PARTIDO"
+                android:textColor="@color/common_google_signin_btn_text_dark_default"
+                android:textSize="20sp" />
+
+
+            <Button
+                android:id="@+id/test2"
+                android:layout_width="259dp"
+                android:layout_height="59dp"
+                android:layout_above="@+id/test3"
+                android:layout_alignStart="@+id/test3"
+                android:layout_marginBottom="31dp"
+                android:backgroundTint="@color/accent"
+                android:onClick="IrMisPartidos"
+                android:text="MIS PARTIDOS"
+                android:textColor="@color/common_google_signin_btn_text_dark_default"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/test3"
+                android:layout_width="259dp"
+                android:layout_height="59dp"
+                android:layout_marginBottom="26dp"
+                android:backgroundTint="@color/accent"
+                android:onClick="IrMisPartidos"
+                android:text="mis amigos"
+                android:textColor="@color/common_google_signin_btn_text_dark_default"
+                android:textSize="20sp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="86sp"
+                android:layout_above="@+id/test1"
+                android:layout_alignParentStart="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="51dp"
+                android:orientation="horizontal"
+                android:layout_alignParentLeft="true">
+
+                <TextView
+                    android:id="@+id/miNombreId"
+                    android:layout_width="match_parent"
+                    android:layout_height="63sp"
+                    android:gravity="top|center_vertical|center_horizontal"
+                    android:scrollbars="vertical"
+                    android:text="Nombre de usuario"
+                    android:textIsSelectable="false"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/button5"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/test1"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:onClick="logOut"
+                android:text="Log Out" />
+
+        </RelativeLayout>
+    </LinearLayout>
+</RelativeLayout>
+
