@@ -40,6 +40,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 public class PrimerActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener{
 
@@ -85,10 +86,12 @@ public class PrimerActivity extends AppCompatActivity implements GoogleApiClient
     private GoogleApiClient googleApiClient;
     private String usuarioIdCuenta;
     private ImageView photoImageView;
+    private Uri urlFoto;
 
 
     //Atributos TODOS LOS PARTIDOS
     ArrayList<Partido> todosPartidos = new ArrayList<>();
+    ArrayList<String> todosPartidosRutasList = new ArrayList<>();
     String [] datosTodosPartidos;
     String p_todosPartidosRuta;
     Partido todosPartidosBajados;
@@ -97,7 +100,7 @@ public class PrimerActivity extends AppCompatActivity implements GoogleApiClient
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        //setContentView(R.layout.activity_main);
 
 
         // CODIGO LOGIN
@@ -130,8 +133,6 @@ public class PrimerActivity extends AppCompatActivity implements GoogleApiClient
 
         //subirAFirebase(pPrueba,"Partidos/"+"Partidos de "+yo.getNombre()+"/");
 
-        Partido partidoBajado;
-        // Read from the database
 
 
 
@@ -151,27 +152,49 @@ public class PrimerActivity extends AppCompatActivity implements GoogleApiClient
 
     }
 
-    public void IrBuscarPartido(View v){
+    public void IrBuscarPartido(View v) throws InterruptedException {
         LayoutActual="Buscar Partido";
 
         String numero = "1";
 
-        bajarRutaTodosPartidos();
 
-        String rutaBajada=p_todosPartidosRuta;
 
-        sacarToast(rutaBajada,Toast.LENGTH_LONG);
 
-        bajarTodosPartidos(rutaBajada);
+
+
+        //bajarTodosPartidos(todosPartidosRutasList.get(2));
+
+
+        //bajarRutaTodosPartidos();
+
+
+        //String rutaBajada1=todosPartidosRutasList.get(1);
+
+        //bajarTodosPartidos(rutaBajada);
+
+        //sacarToast(rutaBajada,Toast.LENGTH_LONG);
+
+       // Partido pNuevo = todosPartidos.get(0);
+
+        //bajarTodosPartidos(rutaBajada);
 
         //bucleBajarTodosPartidos();
 
         //gestionarListViewTodosPartidos();
 
-        setContentView(R.layout.activity_buscar_partido);
+        if(todosPartidos.size()<numeroTodosPartidos){
+            sacarToast("No esta cargado",Toast.LENGTH_SHORT);
+            bucleBajarTodosPartidos();
+            return;
+        }
 
+        setContentView(R.layout.activity_buscar_partido);
+        gestionarListViewTodosPartidos();
 
     }
+
+
+
 
     public void IrValorar(View v){
 
@@ -274,6 +297,7 @@ public class PrimerActivity extends AppCompatActivity implements GoogleApiClient
         for (int i=0;i<misPartidosRutasList.size();i++){
             bajarMiPartido(misPartidosRutasList.get(i));
         }
+
     }
 
 
@@ -614,6 +638,18 @@ public class PrimerActivity extends AppCompatActivity implements GoogleApiClient
 
             bajarNumeroTodosPartidos();
 
+            //bajarStringPrueba(0);
+
+            //bucleBajarTodosPartidos();
+
+
+
+
+            //bucleBajarTodosPartidos();
+
+            //bajarStringPrueba(0);
+
+            //bajarTodosPartidos("Partidos/Partidos de 109439928285176193541/10 4 2017 10 : 00-109439928285176193541");
 
             //yo = new Usuario(miNombre,7,usuarioIdCuenta);
             //subirAFirebase(yo,"Usuarios/"+yo.getUsuarioId());
@@ -624,26 +660,11 @@ public class PrimerActivity extends AppCompatActivity implements GoogleApiClient
             //nameTextView.setText(account.getDisplayName());
             //emailTextView.setText(account.getEmail());
             //idTextView.setText(account.getId());
-            photoImageView=(ImageView) findViewById(R.id.miFotoId);
-            Uri urlFoto = account.getPhotoUrl();
 
-            //TODO Aquí se decide la foto
+            urlFoto = account.getPhotoUrl();
 
 
-            try{
-            if(urlFoto.isOpaque()){ //Si no tiene foto da error y se mete en el catch
 
-                Glide.with(this).load(urlFoto).into(photoImageView);
-            }
-            else{
-                // No debería entrar nunca aquí
-            }
-            }catch (Exception e){
-                sacarToast("Sin foto",Toast.LENGTH_LONG);
-                //No hace nada, así que deja la foto anterior
-
-            }
-            
 
 
 
@@ -703,11 +724,20 @@ public class PrimerActivity extends AppCompatActivity implements GoogleApiClient
 
                 }
 
-                rellenarPerfil();
+
 
                 rutasMisPartidos();
 
                 bucleBajarPartidos();
+
+                bucleBajarTodosPartidos();
+
+
+                rellenarPerfil();
+
+
+
+
 
                 //Log.d(TAG, "Value is: " + value);
                 Log.d("bajar usuario","bien");
@@ -729,9 +759,26 @@ public class PrimerActivity extends AppCompatActivity implements GoogleApiClient
 
     public void rellenarPerfil(){
         try {
+            setContentView(R.layout.activity_main);
             TextView miNombreTextview = (TextView) findViewById(R.id.miNombreId);
             miNombreTextview.setText(yo.getNombre());
 
+            //TODO Aquí se decide la foto
+            photoImageView=(ImageView) findViewById(R.id.miFotoId);
+
+            try{
+                if(urlFoto.isOpaque()){ //Si no tiene foto da error y se mete en el catch
+
+                    Glide.with(this).load(urlFoto).into(photoImageView);
+                }
+                else{
+                    // No debería entrar nunca aquí
+                }
+            }catch (Exception e){
+                sacarToast("Sin foto",Toast.LENGTH_LONG);
+                //No hace nada, así que deja la foto anterior
+
+            }
 
 
         }
@@ -877,7 +924,39 @@ public class PrimerActivity extends AppCompatActivity implements GoogleApiClient
 
     }
 
-    public void bajarRutaTodosPartidos() {
+
+    public void bajarStringPrueba(int ruta) {
+
+        DatabaseReference myRefNumeroTodosPartidos = database.getReference("Todos Partidos/"+ruta);
+
+
+        myRefNumeroTodosPartidos.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                String bajado = dataSnapshot.getValue(String.class);
+                //Cada vez que se baja una ruta, se baja el partido y lo añade
+                todosPartidosRutasList.add(bajado);
+                bajarTodosPartidos(bajado);
+
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+
+            }
+
+
+        });
+
+
+    }
+
+
+    /*public void bajarRutaTodosPartidos() {
 
         DatabaseReference myRefNumeroTodosPartidos = database.getReference("Todos Partidos/0");
 
@@ -903,7 +982,7 @@ public class PrimerActivity extends AppCompatActivity implements GoogleApiClient
 
 
     }
-
+*/
 
     public void bajarTodosPartidos(String ruta) {
 
@@ -916,7 +995,8 @@ public class PrimerActivity extends AppCompatActivity implements GoogleApiClient
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
                 todosPartidosBajados = dataSnapshot.getValue(Partido.class);
-
+                addTodosPartidos(todosPartidosBajados);
+                //todosPartidos.add(todosPartidosBajados);
 
             }
 
@@ -936,8 +1016,9 @@ public class PrimerActivity extends AppCompatActivity implements GoogleApiClient
     public void bucleBajarTodosPartidos(){
 
         for(int i=0;i<numeroTodosPartidos+1;i++){
-            //bajarRutaTodosPartidos(""+i);
-            bajarTodosPartidos(p_todosPartidosRuta);
+            bajarStringPrueba(i);
+
+            //bajarTodosPartidos(todosPartidosRutasList.get(i));
         }
 
 
