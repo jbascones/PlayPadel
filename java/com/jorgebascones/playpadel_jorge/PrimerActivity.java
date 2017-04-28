@@ -49,7 +49,6 @@ public class PrimerActivity extends AppCompatActivity implements GoogleApiClient
     //  ATRIBUTOS MIS PARTIDOS
 
     ListView listView ;
-    //String[] datos ={"Sábado 22","Lunes 24","Martes 25","Miércoles 26","Jueves 27","Viernes 28","Martes 25","Juernes 86"};
     String [] datos;
     ArrayList<Partido> misPartidos = new ArrayList<>();
     //Simulador simulador = new Simulador();
@@ -64,6 +63,8 @@ public class PrimerActivity extends AppCompatActivity implements GoogleApiClient
     private int hour;
     private int minute;
 
+    int numeroTodosPartidos;
+
     //private int baseline;
 
     //private TimePicker tmResult;
@@ -77,8 +78,6 @@ public class PrimerActivity extends AppCompatActivity implements GoogleApiClient
 
     String miNombre;
 
-
-    Partido partido1;
     Usuario yo;
 
     // ATRIBUTOS LOGIN
@@ -86,6 +85,13 @@ public class PrimerActivity extends AppCompatActivity implements GoogleApiClient
     private GoogleApiClient googleApiClient;
     private String usuarioIdCuenta;
     private ImageView photoImageView;
+
+
+    //Atributos TODOS LOS PARTIDOS
+    ArrayList<Partido> todosPartidos = new ArrayList<>();
+    String [] datosTodosPartidos;
+    String p_todosPartidosRuta;
+    Partido todosPartidosBajados;
 
 
     @Override
@@ -107,10 +113,6 @@ public class PrimerActivity extends AppCompatActivity implements GoogleApiClient
 
 
 
-
-
-
-        //Fecha fecha_p1 =new Fecha(-1,-1,-1,-1,-1);
 
 
         //yo = new Usuario(miNombre,7,usuarioIdCuenta);
@@ -151,6 +153,21 @@ public class PrimerActivity extends AppCompatActivity implements GoogleApiClient
 
     public void IrBuscarPartido(View v){
         LayoutActual="Buscar Partido";
+
+        String numero = "1";
+
+        bajarRutaTodosPartidos();
+
+        String rutaBajada=p_todosPartidosRuta;
+
+        sacarToast(rutaBajada,Toast.LENGTH_LONG);
+
+        bajarTodosPartidos(rutaBajada);
+
+        //bucleBajarTodosPartidos();
+
+        //gestionarListViewTodosPartidos();
+
         setContentView(R.layout.activity_buscar_partido);
 
 
@@ -374,6 +391,9 @@ public class PrimerActivity extends AppCompatActivity implements GoogleApiClient
                     setContentView(R.layout.activity_mispartidos2);
 
                     gestionarListView();
+
+                    addRutaTodosPartidos(partidos + partidosDe + partidoNuevo);
+
                 }catch (Exception e){
 
                 }
@@ -592,6 +612,9 @@ public class PrimerActivity extends AppCompatActivity implements GoogleApiClient
 
             bajarUsuario(usuarioIdCuenta);
 
+            bajarNumeroTodosPartidos();
+
+
             //yo = new Usuario(miNombre,7,usuarioIdCuenta);
             //subirAFirebase(yo,"Usuarios/"+yo.getUsuarioId());
 
@@ -616,6 +639,7 @@ public class PrimerActivity extends AppCompatActivity implements GoogleApiClient
                 // No debería entrar nunca aquí
             }
             }catch (Exception e){
+                sacarToast("Sin foto",Toast.LENGTH_LONG);
                 //No hace nada, así que deja la foto anterior
 
             }
@@ -814,13 +838,214 @@ public class PrimerActivity extends AppCompatActivity implements GoogleApiClient
 
     }
 
-    public void addRutaTodosPartidos(){
+    public void addRutaTodosPartidos(String ruta){
 
-
-
+        numeroTodosPartidos++;
+        subirAFirebase(ruta,"Todos Partidos/"+numeroTodosPartidos);
+        subirAFirebase(numeroTodosPartidos,"Todos Partidos/Numero");
 
 
     }
+
+//METODOS PARA BAJAR TODOS PARTIDOS
+
+
+    public void bajarNumeroTodosPartidos() {
+
+        DatabaseReference myRefNumeroTodosPartidos = database.getReference("Todos Partidos/Numero");
+
+
+        myRefNumeroTodosPartidos.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                numeroTodosPartidos = dataSnapshot.getValue(int.class);
+
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+
+            }
+
+
+        });
+
+
+    }
+
+    public void bajarRutaTodosPartidos() {
+
+        DatabaseReference myRefNumeroTodosPartidos = database.getReference("Todos Partidos/0");
+
+
+        myRefNumeroTodosPartidos.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                p_todosPartidosRuta = dataSnapshot.getValue(String.class);
+
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+
+            }
+
+
+        });
+
+
+    }
+
+
+    public void bajarTodosPartidos(String ruta) {
+
+        DatabaseReference myRefTodosPartidosPrueba = database.getReference(ruta);
+
+
+        myRefTodosPartidosPrueba.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                todosPartidosBajados = dataSnapshot.getValue(Partido.class);
+
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+
+            }
+
+
+        });
+
+
+    }
+
+
+    public void bucleBajarTodosPartidos(){
+
+        for(int i=0;i<numeroTodosPartidos+1;i++){
+            //bajarRutaTodosPartidos(""+i);
+            bajarTodosPartidos(p_todosPartidosRuta);
+        }
+
+
+    }
+
+    //Metodo que gestiona el añadido de todosPartidos
+    public void addTodosPartidos(Partido p_nuevo){
+
+        if(todosPartidos.size()==0){
+            todosPartidos.add(p_nuevo);
+
+        }else{
+            boolean added = false;
+
+            for(int i=0;i<todosPartidos.size();i++){
+
+                String id1 = todosPartidos.get(i).getPartidoId();
+                String id2 = p_nuevo.getPartidoId();
+                if(id1.equals(id2)){
+                    todosPartidos.remove(i);
+                    todosPartidos.add(i,p_nuevo);
+                    added = true;
+                }
+
+            }
+            if(added==false){
+                todosPartidos.add(p_nuevo);
+            }
+
+        }
+
+    }
+
+    public void borrarMisPartidos(){
+        yo.setMisPartidos("&");
+        subirAFirebase(yo,"Usuarios/"+yo.getUsuarioId());
+    }
+
+    public void gestionarListViewTodosPartidos(){
+
+        rellenarListViewTodosPartidos();
+
+
+
+        listView = (ListView) findViewById(R.id.listIdTodosPartidos);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1, datosTodosPartidos);
+        listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+
+                // ListView Clicked item index
+                int itemPosition     = position;
+
+                // ListView Clicked item value
+                String  itemValue    = (String) listView.getItemAtPosition(position);
+
+                // Show Alert
+                /*Toast.makeText(getApplicationContext(),
+                        "Position :"+itemPosition+"  ListItem : " +itemValue , Toast.LENGTH_LONG)
+                        .show(); */
+
+
+                setContentView(R.layout.activity_el_partido);
+                TextView elPartidoTV = (TextView) findViewById(R.id.elPartidoId);
+                String nombrePartido = datosTodosPartidosRecortados(itemValue);
+                elPartidoTV.setText(nombrePartido);
+                ponerNombres(todosPartidos.get(itemPosition));
+
+
+            }
+
+        });
+
+
+    }
+    public String datosTodosPartidosRecortados(String itemValue){
+
+        int index = itemValue.indexOf('\n');
+
+
+        return itemValue.substring(0,index);
+    }
+
+
+    public void rellenarListViewTodosPartidos () {
+
+        datosTodosPartidos = new String[todosPartidos.size()];
+
+        for(int i=0;i<todosPartidos.size();i++){
+
+
+            day = todosPartidos.get(i).getDate().getDay();
+            month = todosPartidos.get(i).getDate().getMonth();
+            year = todosPartidos.get(i).getDate().getYear();
+            hour = todosPartidos.get(i).getDate().getHour();
+            minute = todosPartidos.get(i).getDate().getMinute();
+
+            datosTodosPartidos[i]="El "+getStringFecha("/")+" a las "+getStringHora()+"\n"+getStringJugadoresQuedan(todosPartidos.get(i));
+
+        }
+    }
+
+
 
 
 }

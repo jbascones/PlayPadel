@@ -15,6 +15,7 @@ public class Partido {
 	public boolean resultadoj2;
 	public boolean resultadoj3;
 	public boolean resultadoj4;
+	public double nivelMinimo;
 	
 	//TODO No sabemos como manejar la localizacion
 	//private String localizacion;
@@ -158,6 +159,14 @@ public class Partido {
 
 	public void setPartidoId(String partidoId) {
 		this.partidoId = partidoId;
+	}
+
+	public double getNivelMinimo() {
+		return nivelMinimo;
+	}
+
+	public void setNivelMinimo(double nivelMinimo) {
+		this.nivelMinimo = nivelMinimo;
 	}
 
 
