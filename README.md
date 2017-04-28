@@ -1,4 +1,4 @@
-# PlayPadel
+﻿# PlayPadel
 App para la asignatura ISST 
 
 Proudly Developed by:
@@ -8,4 +8,4 @@ Proudly Developed by:
       Adrian Roy 
       Pablo Viñals
       
-In sunny Spain 
+In sunny Spain.
