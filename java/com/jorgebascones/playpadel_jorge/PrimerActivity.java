@@ -86,6 +86,7 @@ public class PrimerActivity extends AppCompatActivity implements GoogleApiClient
     private GoogleApiClient googleApiClient;
     private String usuarioIdCuenta;
     private ImageView photoImageView;
+    private ImageView fotoClasificacion;
     private Uri urlFoto;
 
 
@@ -222,10 +223,13 @@ public class PrimerActivity extends AppCompatActivity implements GoogleApiClient
 
         LayoutActual="Perfil";
 
-        setContentView(R.layout.activity_mi_perfil);
+        rellenarPerfilLayout(yo);
+
 
 
     }
+
+
 
     public void IrCrear(View v){
 
@@ -641,7 +645,7 @@ public class PrimerActivity extends AppCompatActivity implements GoogleApiClient
             //bajarStringPrueba(0);
 
             //bucleBajarTodosPartidos();
-            
+
             //bucleBajarTodosPartidos();
 
             //bajarStringPrueba(0);
@@ -1122,6 +1126,17 @@ public class PrimerActivity extends AppCompatActivity implements GoogleApiClient
 
         }
     }
+
+
+
+    public void rellenarPerfilLayout(Usuario u){
+        setContentView(R.layout.activity_mi_perfil);
+        TextView nombreTV = (TextView) findViewById(R.id.miNombreId);
+        String nombre = u.getNombre();
+        nombreTV.setText(nombre);
+
+    }
+
 
 
 
