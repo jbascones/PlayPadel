@@ -47,21 +47,70 @@ public class PrimerActivity extends AppCompatActivity implements GoogleApiClient
 
     String LayoutActual = "";
 
-    //  ATRIBUTOS MIS PARTIDOS
+    /**
+     * Atributos de misPartidos
+     */
 
+<<<<<<< HEAD
     ListView listView ;
+=======
+
+    /**
+     * List view
+     */
+    ListView listView;
+
+    /**
+     * Datos
+     */
+    //String[] datos ={"Sábado 22","Lunes 24","Martes 25","Miércoles 26","Jueves 27","Viernes 28","Martes 25","Juernes 86"};
+>>>>>>> origin/master
     String [] datos;
+
+    /**
+     * Array List de mis partidos
+     */
     ArrayList<Partido> misPartidos = new ArrayList<>();
+
     //Simulador simulador = new Simulador();
+
+    /**
+     * Array List de las rutas de firebase de mis partidos
+     */
     ArrayList<String> misPartidosRutasList = new ArrayList<>();
 
-    //  ATRIBUTOS CREAR PARTIDO
+    /**
+     * Atributos de crearPartido
+     */
 
+    /**
+     * Resultado del DatePicker
+     */
     private DatePicker dpResult;
+
+    /**
+     * Anno de le fecha
+     */
     private int year;
+
+    /**
+     * Mes de la fecha
+     */
     private int month;
+
+    /**
+     * Dia de la fecha
+     */
     private int day;
+
+    /**
+     *  Hora de la fecha
+     */
     private int hour;
+
+    /**
+     * Minutos de la fecha
+     */
     private int minute;
 
     int numeroTodosPartidos;
@@ -70,21 +119,51 @@ public class PrimerActivity extends AppCompatActivity implements GoogleApiClient
 
     //private TimePicker tmResult;
 
-    // ATRIBUTOS MI PERFIL
+    /**
+     * Atributos de mi perfil
+     */
+
+    /**
+     * Instacia de la firebase
+     */
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference();
 
-
-
-
+    /**
+     * Nombre del usuario
+     */
     String miNombre;
 
+<<<<<<< HEAD
+=======
+    /**
+     * Primer partido del usuario
+     */
+    Partido partido1;
+
+    /**
+     * El usuario
+     */
+>>>>>>> origin/master
     Usuario yo;
 
-    // ATRIBUTOS LOGIN
+    /**
+     * Atributos de login
+     */
 
+    /**
+     * Google Api Client. Para hacer el LogIn con Google
+     */
     private GoogleApiClient googleApiClient;
+
+    /**
+     * Id de la cuenta de usuario
+     */
     private String usuarioIdCuenta;
+
+    /**
+     * Foto del usuario
+     */
     private ImageView photoImageView;
     private ImageView fotoClasificacion;
     private Uri urlFoto;
@@ -104,7 +183,9 @@ public class PrimerActivity extends AppCompatActivity implements GoogleApiClient
         //setContentView(R.layout.activity_main);
 
 
-        // CODIGO LOGIN
+        /**
+         * CODIGO LOG IN
+         */
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
@@ -116,6 +197,7 @@ public class PrimerActivity extends AppCompatActivity implements GoogleApiClient
                 .build();
 
 
+<<<<<<< HEAD
 
 
 
@@ -124,6 +206,8 @@ public class PrimerActivity extends AppCompatActivity implements GoogleApiClient
         //partido1 =new Partido(yo,fecha_p1);
 
 
+=======
+>>>>>>> origin/master
         //simulador.añadirMisPartidosSimulados(yo,misPartidos);
 
         // Firebase
@@ -139,6 +223,10 @@ public class PrimerActivity extends AppCompatActivity implements GoogleApiClient
 
     }
 
+    /**
+     * Cambia de actividad a mis Partidos
+     * @param v La vista a la que vamos a cambiar
+     */
     public void IrMisPartidos(View v)  {
 
         setContentView(R.layout.activity_mispartidos2);
@@ -153,7 +241,15 @@ public class PrimerActivity extends AppCompatActivity implements GoogleApiClient
 
     }
 
+<<<<<<< HEAD
     public void IrBuscarPartido(View v) throws InterruptedException {
+=======
+    /**
+     * Ir a la actividad de buscar Partido
+     * @param v Vista a la que vamos a cambiar
+     */
+    public void IrBuscarPartido(View v){
+>>>>>>> origin/master
         LayoutActual="Buscar Partido";
 
         String numero = "1";
@@ -194,9 +290,16 @@ public class PrimerActivity extends AppCompatActivity implements GoogleApiClient
 
     }
 
+<<<<<<< HEAD
 
 
 
+=======
+    /**
+     * Ir a la actividad de valoracion
+     * @param v Vista a la que vamos a cambiar
+     */
+>>>>>>> origin/master
     public void IrValorar(View v){
 
         LayoutActual="Valorar";
@@ -206,6 +309,10 @@ public class PrimerActivity extends AppCompatActivity implements GoogleApiClient
 
     }
 
+    /**
+     * Ir a la actividad de Home
+     * @param v Vista a la que vamos a cambiar
+     */
     public void IrHome(View v){
 
         LayoutActual="Home";
@@ -218,6 +325,10 @@ public class PrimerActivity extends AppCompatActivity implements GoogleApiClient
 
     }
 
+    /**
+     * Ir a la actividad perfil
+     * @param v Vista a la que vamos a cambiar
+     */
     public void IrPerfil(View v){
 
 
@@ -229,8 +340,15 @@ public class PrimerActivity extends AppCompatActivity implements GoogleApiClient
 
     }
 
+<<<<<<< HEAD
 
 
+=======
+    /**
+     * Ir a la actividad de crear partido
+     * @param v vista a la que vamos a cambiar
+     */
+>>>>>>> origin/master
     public void IrCrear(View v){
 
 
@@ -245,10 +363,13 @@ public class PrimerActivity extends AppCompatActivity implements GoogleApiClient
 
     }
 
-    //////////////////////////
-    //  METODOS DE MIS PARTIDOS
-    ///////////////////////////
+    /**
+     * Metodos de mis partidos
+     */
 
+    /**
+     * Gestiona el ListView
+     */
     public void gestionarListView(){
 
 
@@ -297,6 +418,9 @@ public class PrimerActivity extends AppCompatActivity implements GoogleApiClient
 
     }
 
+    /**
+     * Descarga los partidos del usuario
+     */
     public void bucleBajarPartidos(){
         for (int i=0;i<misPartidosRutasList.size();i++){
             bajarMiPartido(misPartidosRutasList.get(i));
@@ -305,6 +429,9 @@ public class PrimerActivity extends AppCompatActivity implements GoogleApiClient
     }
 
 
+    /**
+     * Pone las rutas de los partidos en un array List
+     */
     public void rutasMisPartidos(){
 
         String misPartidosString = yo.getMisPartidos();
@@ -330,36 +457,9 @@ public class PrimerActivity extends AppCompatActivity implements GoogleApiClient
     }
 
 
-
-
-
-    //////////////////////////
-    //  METODOS CREAR PARTIDO
-    ///////////////////////////
-
-
-  /*  private DatePickerDialog.OnDateSetListener datePickerListener
-            = new DatePickerDialog.OnDateSetListener() {
-
-        // when dialog box is closed, below method will be called.
-        public void onDateSet(DatePicker view, int selectedYear,
-                              int selectedMonth, int selectedDay) {
-            year = selectedYear;
-            month = selectedMonth;
-            day = selectedDay;
-
-            // set selected date into textview
-            String  fechaElegida =  ""+day+"/"+""+month+1+"/"+""+year;
-            Toast.makeText(getApplicationContext(),
-                    fechaElegida , Toast.LENGTH_LONG)
-                    .show();
-
-            // set selected date into datepicker also
-            dpResult.init(year, month, day, null);
-
-        }
-    };
-    */
+    /**
+     * Metodos crear Partido
+     */
 
 
     public void botonCrearPartido(View v){

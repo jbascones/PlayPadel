@@ -37,39 +37,46 @@
 
             <Button
                 android:id="@+id/button2"
-                android:layout_width="259dp"
-                android:layout_height="59dp"
+                android:layout_width="@dimen/_259sdp"
+                android:layout_height="@dimen/_59sdp"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
-                android:layout_marginBottom="25dp"
+                android:layout_marginBottom="@dimen/_25sdp"
                 android:background="#009688"
                 android:onClick="IrCrear"
                 android:text="INDICA TÚ UNA"
                 android:textColor="@color/common_google_signin_btn_text_dark_default"
                 android:textColorLink="@color/common_google_signin_btn_text_dark_default"
-                android:textSize="20sp"
-                tools:layout_editor_absoluteX="41dp"
-                tools:layout_editor_absoluteY="426dp" />
+                android:textSize="@dimen/_20sdp"
+                tools:layout_editor_absoluteX="@dimen/_41sdp"
+                tools:layout_editor_absoluteY="@dimen/_426sdp" />
 
             <ListView
                 android:id="@+id/listIdTodosPartidos"
                 android:layout_width="match_parent"
+<<<<<<< HEAD
                 android:layout_height="330dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="13dp" />
+=======
+                android:layout_height="@dimen/_240sdp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="@dimen/_13sdp" />
+>>>>>>> origin/master
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:text="¿No te convencen?"
-                android:textSize="24sp"
-                tools:layout_editor_absoluteX="35dp"
-                tools:layout_editor_absoluteY="410dp"
+                android:textSize="@dimen/_24sdp"
+                tools:layout_editor_absoluteX="@dimen/_35sdp"
+                tools:layout_editor_absoluteY="@dimen/_410sdp"
                 android:layout_above="@+id/button2"
                 android:layout_centerHorizontal="true"
-                android:layout_marginBottom="17dp" />
+                android:layout_marginBottom="@dimen/_17sdp" />
 
 
         </RelativeLayout>

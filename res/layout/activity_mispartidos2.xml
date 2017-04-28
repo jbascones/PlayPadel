@@ -32,12 +32,12 @@
         <TextView
             android:id="@+id/elPartidoId"
             android:layout_width="wrap_content"
-            android:layout_height="63dp"
+            android:layout_height="@dimen/_55sdp"
             android:layout_gravity="center_horizontal"
             android:text="Mis Partidos"
-            android:textSize="32sp"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="16dp" />
+            android:textSize="@dimen/_32sdp"
+            tools:layout_editor_absoluteX="@dimen/_16sdp"
+            tools:layout_editor_absoluteY="@dimen/_16sdp" />
 
 
         <RelativeLayout
@@ -46,20 +46,20 @@
 
             <Button
                 android:id="@+id/button4"
-                android:layout_width="279dp"
-                android:layout_height="70dp"
+                android:layout_width="@dimen/_279sdp"
+                android:layout_height="@dimen/_70sdp"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
-                android:layout_marginBottom="40dp"
+                android:layout_marginBottom="@dimen/_40sdp"
                 android:backgroundTint="#009688"
                 android:elevation="0dp"
                 android:onClick="IrBuscarPartido"
                 android:text="Buscar partido"
                 android:textColor="@android:color/background_light"
                 android:textColorLink="#009688"
-                android:textSize="20sp"
-                tools:layout_editor_absoluteX="53dp"
-                tools:layout_editor_absoluteY="413dp" />
+                android:textSize="@dimen/_20sdp"
+                tools:layout_editor_absoluteX="@dimen/_53sdp"
+                tools:layout_editor_absoluteY="@dimen/_413sdp" />
 
             <ListView
                 android:id="@+id/listId"
