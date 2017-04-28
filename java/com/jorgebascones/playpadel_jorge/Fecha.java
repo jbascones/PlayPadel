@@ -54,46 +54,84 @@ public class Fecha {
         this.year=year;
         this.hour=hour;
         this.minute=minute;
-
-
     }
 
+    /**
+     *
+     * @return el dia de la fecha
+     */
     public int getDay() {
         return day;
     }
 
+    /**
+     *
+     * @return El mes de la fecha
+     */
     public int getMonth() {
         return month;
     }
 
+    /**
+     *
+     * @return El anno de la fecha
+     */
     public int getYear() {
         return year;
     }
 
+    /**
+     *
+     * @return La hora de la fecha
+     */
     public int getHour() {
         return hour;
     }
 
+    /**
+     *
+     * @return Los minutos de la fecha
+     */
     public int getMinute() {
         return minute;
     }
 
+    /**
+     *
+     * @param day El dia de la fecha
+     */
     public void setDay(int day) {
         this.day = day;
     }
 
+    /**
+     *
+     * @param month el mes de la fecha
+     */
     public void setMonth(int month) {
         this.month = month;
     }
 
+    /**
+     *
+     * @param year El anno de la fecha
+     */
     public void setYear(int year) {
         this.year = year;
     }
 
+    /**
+     *
+     * @param hour La hora de la fecha
+     */
     public void setHour(int hour) {
         this.hour = hour;
     }
 
+    /**
+     *
+     * @param minute Los minutos de la fecha
+     */
     public void setMinute(int minute) {
         this.minute = minute;
     }
