@@ -10,6 +10,7 @@ public class Usuario {
 	public String localizacion;
 	public double nivel;
 	public String misPartidos;
+	public boolean isAdmin;
 
 
 	/**
@@ -95,5 +96,10 @@ public class Usuario {
 	public String getMisPartidos(){return misPartidos;}
 
 	public void setMisPartidos(String misPartidos){this.misPartidos=misPartidos;}
+
+	public boolean getIsAdmin(){return isAdmin;}
+
+	public void setIsAdmin(boolean isAdmin){this.isAdmin=isAdmin;}
+
 	
 }

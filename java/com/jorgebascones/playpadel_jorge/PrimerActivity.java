@@ -641,10 +641,7 @@ public class PrimerActivity extends AppCompatActivity implements GoogleApiClient
             //bajarStringPrueba(0);
 
             //bucleBajarTodosPartidos();
-
-
-
-
+            
             //bucleBajarTodosPartidos();
 
             //bajarStringPrueba(0);
@@ -762,7 +759,7 @@ public class PrimerActivity extends AppCompatActivity implements GoogleApiClient
             setContentView(R.layout.activity_main);
             TextView miNombreTextview = (TextView) findViewById(R.id.miNombreId);
             miNombreTextview.setText(yo.getNombre());
-
+            sacarToast("Es admin "+yo.getIsAdmin(),Toast.LENGTH_SHORT);
             //TODO Aquí se decide la foto
             photoImageView=(ImageView) findViewById(R.id.miFotoId);
 
